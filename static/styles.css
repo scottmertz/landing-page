@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+.logo-img {
+    width: 220px;        /* adjust to your liking */
+    height: auto;
+    margin-bottom: 1rem;
+}
+
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #050509;
