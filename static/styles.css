@@ -1,0 +1,243 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #050509;
+    color: #f5f5f5;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    background: radial-gradient(circle at top, #3b82f6 0, #050509 60%);
+    color: #f9fafb;
+}
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 3.5rem;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.countdown-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+.countdown-title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.time-block {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    min-width: 70px;
+}
+
+.time-block span:first-child {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    opacity: 0.7;
+}
+
+.released {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* FORMS */
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.email-form input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    border: none;
+    outline: none;
+    background: rgba(15, 23, 42, 0.9);
+    color: #f9fafb;
+}
+
+.email-form button {
+    padding: 0.75rem 2.5rem;
+    border-radius: 999px;
+    border: none;
+    background: #f97316;
+    color: #0b0f19;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+}
+
+.email-form button:hover {
+    background: #ea580c;
+}
+
+/* FLASH MESSAGES */
+
+.flash-messages {
+    margin-top: 0.75rem;
+}
+
+.flash {
+    font-size: 0.85rem;
+}
+
+.flash.success {
+    color: #22c55e;
+}
+
+.flash.error {
+    color: #f97316;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 3rem 1.5rem;
+}
+
+.social, .about, .signup-secondary {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social h2,
+.about h2,
+.signup-secondary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.social p,
+.about p,
+.signup-secondary p {
+    margin-bottom: 1.25rem;
+    opacity: 0.9;
+}
+
+/* SOCIAL BUTTONS */
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.social-btn:hover {
+    border-color: #f97316;
+    color: #f97316;
+}
+
+/* FOOTER */
+
+.footer {
+    margin-top: auto;
+    padding: 1.5rem 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 640px) {
+    .logo {
+        font-size: 4.5rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+
+    .email-form {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .email-form input[type="email"] {
+        border-radius: 999px 0 0 999px;
+    }
+
+    .email-form button {
+        border-radius: 0 999px 999px 0;
+    }
+}
