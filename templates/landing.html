@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMERTZ - First Single Drops 02.01.26</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SMERTZ. A new era. First single dropping February 1st, 2026. Tap in or move out.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <section class="hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1 class="logo">SMERTZ</h1>
+                <p class="tagline">New name, new era, old me.</p>
+
+                <div class="countdown-wrapper">
+                    <h2 class="countdown-title">First single drops in:</h2>
+                    <div id="countdown" class="countdown">
+                        <div class="time-block">
+                            <span id="days">--</span>
+                            <span class="label">Days</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="hours">--</span>
+                            <span class="label">Hours</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="minutes">--</span>
+                            <span class="label">Minutes</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="seconds">--</span>
+                            <span class="label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta">
+                    <form method="POST" class="email-form">
+                        <input type="email" name="email" placeholder="Drop your email" required>
+                        <button type="submit">Get it first</button>
+                    </form>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="flash-messages">
+                                {% for category, message in messages %}
+                                    <p class="flash {{ category }}">{{ message }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL HUB -->
+        <section class="social">
+            <h2>The comeup WILL be televised</h2>
+            <p>Behind-the-scenes, raw sixteens and everything else leading up to 02.01.26</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/smertzofficial" target="_blank" class="social-btn">Facebook</a>
+                <a href="https://www.instagram.com/smertzofficial/" target="_blank" class="social-btn">Instagram</a>
+                <a href="https://www.youtube.com/@SMERTZ-rapper" target="_blank" class="social-btn">YouTube</a>
+                <a href="https://www.tiktok.com/@smertzofficial" target="_blank" class="social-btn">TikTok</a>
+            </div>
+        </section>
+
+        <!-- ABOUT / TEASER -->
+        <section class="about">
+            <h2>SMERTZ is the rebrand.</h2>
+            <p>
+                This is the version of me that's done asking for permission.
+            </p>
+            <p>
+                First single (MC's Act Like They Don't Know): built from late nights, early mornings and every voice saying I should've quit years ago.
+            </p>
+        </section>
+
+        <!-- SECOND SIGNUP (FOR SCROLLERS) -->
+        <section class="signup-secondary">
+            <h2>Be on the list that hears it first.</h2>
+            <p>No spam. No fluff. Just the drop and the story behind it.</p>
+            <form method="POST" class="email-form">
+                <input type="email" name="email" placeholder="Drop your email" required>
+                <button type="submit">Lock me in</button>
+            </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© {{ 2026 }} SMERTZ. New name. Same grind.</p>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            const releaseTime = Number("{{ release_timestamp }}");
+            const countdownEl = document.getElementById('countdown');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = releaseTime - now;
+
+                if (distance <= 0) {
+                    countdownEl.innerHTML = "<span class='released'>OUT NOW.</span>";
+                    clearInterval(interval);
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days;
+                document.getElementById("hours").innerText = hours;
+                document.getElementById("minutes").innerText = minutes;
+                document.getElementById("seconds").innerText = seconds;
+            }
+
+            const interval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+        })();
+    </script>
+</body>
+</html>
